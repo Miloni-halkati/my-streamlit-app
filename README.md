@@ -1,7 +1,3 @@
-Here's the updated **README.md** file incorporating all the project components you have organized:  
-
----
-
 ## 🍽️ Zomato Restaurant Success Predictor  
 ![Powered by Streamlit](https://img.shields.io/badge/Powered%20by-Streamlit-red)  
 ![Built with Python](https://img.shields.io/badge/Built%20with-Python%203.x-blue)  
@@ -86,4 +82,4 @@ streamlit run scripts/app.py
 
 ## 🔗 Live Deployment  
 🚀 The app is deployed on **Streamlit Cloud**:  
-🔗 **(https://miloni-halkati-my-streamlit-app.streamlit.app)**  
+🔗 **(https://miloni-halkati-my-streamlit-app-app-mhdrqm.streamlit.app/)**  
