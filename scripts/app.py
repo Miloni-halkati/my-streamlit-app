@@ -4,8 +4,14 @@ import pickle
 import numpy as np
 
 # Load trained model and scaler
-model = pickle.load(open("model.pkl", "rb"))
-scaler = pickle.load(open("scaler.pkl", "rb"))
+import os
+# Get the correct absolute path to model.pkl
+model_path = os.path.join(os.path.dirname(__file__), "..", "models", "model.pkl")
+# Load the model
+model = pickle.load(open(model_path, "rb"))
+
+scaler_path = os.path.join(os.path.dirname(__file__), "..", "models", "scaler.pkl")
+scaler = pickle.load(open(scaler_path, "rb"))
 
 # Streamlit UI
 st.title("🍽️ Zomato Restaurant Churn Prediction")
