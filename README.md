@@ -86,4 +86,4 @@ streamlit run scripts/app.py
 
 ## 🔗 Live Deployment  
 🚀 The app is deployed on **Streamlit Cloud**:  
-🔗 **[Live App Link](https://miloni-halkati-my-streamlit-app.streamlit.app)**  
+🔗 **(https://miloni-halkati-my-streamlit-app.streamlit.app)**  
