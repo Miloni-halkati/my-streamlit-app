@@ -5,17 +5,12 @@ import numpy as np
 
 # Load trained model and scaler
 import os
-<<<<<<< HEAD
-
 model_path = os.path.join(os.path.dirname(__file__), "..", "models", "model.pkl")
 model = pickle.load(open(model_path, "rb"))
-=======
 # Get the correct absolute path to model.pkl
 model_path = os.path.join(os.path.dirname(__file__), "..", "models", "model.pkl")
 # Load the model
 model = pickle.load(open(model_path, "rb"))
-
->>>>>>> origin/main
 scaler_path = os.path.join(os.path.dirname(__file__), "..", "models", "scaler.pkl")
 scaler = pickle.load(open(scaler_path, "rb"))
 
