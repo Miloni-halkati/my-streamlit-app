@@ -37,7 +37,7 @@ input_data = pd.DataFrame([[avg_cost, rating, num_ratings, online_order, table_b
 input_data_np = input_data.to_numpy()
 
 # Scale the input
-input_data_scaled = scaler.transform(input_data_np)
+input_data_scaled = scaler.transform(input_data_np.clip(min=scaler.data_min_, max=scaler.data_max_))
 
 # Predict
 if st.button("Predict Churn"):
