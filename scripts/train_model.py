@@ -12,7 +12,7 @@ df = pd.read_csv("zomato.csv")
 features = ["avg cost (two people)", "rate (out of 5)", "num of ratings", "online_order", "table booking"]
 df["online_order"] = df["online_order"].map({"Yes": 1, "No": 0})
 df["table booking"] = df["table booking"].map({"Yes": 1, "No": 0})
-df["churn"] = df.apply(lambda x: 1 if (x["rate (out of 5)"] < 3 and x["num of ratings"] < 50) else 0, axis=1)
+df["churn"] = df.apply(lambda x: 1 if (x["rate (out of 5)"] < 3 or x["num of ratings"] < 50 or (x["avg cost (two people)"] > 1000 and x["rate (out of 5)"] < 4)) else 0, axis=1)
 
 X = df[features]
 y = df["churn"]
