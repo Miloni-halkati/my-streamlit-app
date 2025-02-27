@@ -27,7 +27,7 @@ table_booking = 1 if table_booking == "Yes" else 0
 
 # Prepare input for model
 feature_names = ["avg cost (two people)", "rate (out of 5)", "num of ratings", "online_order", "table booking"]
-input_data = np.array([[avg_cost, rating, num_ratings, online_order, table_booking]])
+input_data = pd.DataFrame([[avg_cost, rating, num_ratings, online_order, table_booking]], columns=feature_names)
 input_data_scaled = scaler.transform(input_data)  # Ensure proper scaling
 
 # Predict on button click
