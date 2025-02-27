@@ -2,18 +2,14 @@ import streamlit as st
 import pandas as pd
 import pickle
 import numpy as np
+
+# Load trained model and scaler safely
 import os
+model_path = os.path.join(os.path.dirname(__file__), "../models/model.pkl")
+scaler_path = os.path.join(os.path.dirname(__file__), "../models/scaler.pkl")
 
-# Load trained model and scaler
-model_path = os.path.join(os.path.dirname(__file__), "..", "models", "model.pkl")
-scaler_path = os.path.join(os.path.dirname(__file__), "..", "models", "scaler.pkl")
-
-# Load the model and scaler
-with open(model_path, "rb") as model_file:
-    model = pickle.load(model_file)
-
-with open(scaler_path, "rb") as scaler_file:
-    scaler = pickle.load(scaler_file)
+model = pickle.load(open(model_path, "rb"))
+scaler = pickle.load(open(scaler_path, "rb"))
 
 # Streamlit UI
 st.title("🍽️ Zomato Restaurant Churn Prediction")
@@ -32,16 +28,11 @@ table_booking = 1 if table_booking == "Yes" else 0
 
 # Prepare input for model
 feature_names = ["avg cost (two people)", "rate (out of 5)", "num of ratings", "online_order", "table booking"]
-input_data = pd.DataFrame([[avg_cost, rating, num_ratings, online_order, table_booking]], columns=feature_names)
-
-# Convert to NumPy array
-input_data_np = input_data.to_numpy()
-
-# Scale the input safely (handle out-of-range values)
-input_data_scaled = scaler.transform(np.clip(input_data_np, scaler.data_min_, scaler.data_max_))
+input_data = np.array([[avg_cost, rating, num_ratings, online_order, table_booking]])
+input_data_scaled = scaler.transform(input_data)  # Ensure proper scaling
 
 # Predict on button click
 if st.button("Predict Churn"):
     prediction = model.predict(input_data_scaled)
-    result = "🚨 Churn Likely" if prediction[0] == 1 else "✅ Restaurant is Stable"
+    result = "🚨 Churn Likely" if int(prediction[0]) == 1 else "✅ Restaurant is Stable"
     st.subheader(result)
