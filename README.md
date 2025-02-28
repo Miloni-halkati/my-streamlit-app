@@ -53,30 +53,7 @@ The dataset used in this project is the **Zomato Restaurant Dataset** with featu
 
 ---
 
-<<<<<<< HEAD
-## 📦 Installation  
-To run the app locally, follow these steps:
 
-### **Step 1: Clone the Repository**  
-```bash
-git clone https://github.com/Miloni-halkati/my-streamlit-app.git
-cd my-streamlit-app
-```
-
-### **Step 2: Install Dependencies**  
-```bash
-pip install -r requirements.txt
-```
-
-### **Step 3: Run the App**  
-```bash
-streamlit run scripts/app.py
-```
-
----
-
-=======
->>>>>>> 5f1afbc29537df29b97bc180c39a0ea92994b140
 ## 🎯 Power BI Dashboard  
 📌 The **interactive dashboard** provides key business insights and data visualization.  
 📂 Located in the **dashboard/** folder → `Zomato.pbix`  
